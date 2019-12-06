@@ -45,10 +45,10 @@ function newCard(data) {
   const img = document.createElement(`img`);
   const authorName = document.createElement(`span`);
 
-  card.appendChild(headline);
-  card.appendChild(author);
-  author.appendChild(imgContainer);
-  author.appendChild(authorName);
+  card.append(headline, author);
+  // card.appendChild(author);
+  author.append(imgContainer, authorName);
+  // author.appendChild(authorName);
   imgContainer.appendChild(img);
 
   card.classList.add(`card`);
