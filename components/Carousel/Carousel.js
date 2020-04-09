@@ -31,17 +31,53 @@ function createCarousel() {
   thirdImg.src = `./assets/carousel/trees.jpeg`;
   fourthImg.src = `./assets/carousel/turntable.jpeg`;
 
+  let index = 0;
+
+  const show = e => {
+    index += e;
+
+    if (index >= 5) {
+      index = 1;
+    } if (index <= 0) {
+      index = 4;
+    }
+
+    if (index === 1) {
+      firstImg.style.display = 'block';
+      secondImg.style.display = 'none';
+      thirdImg.style.display = 'none';
+      fourthImg.style.display = 'none';
+    } else if (index === 2) {
+      firstImg.style.display = 'none';
+      secondImg.style.display = 'block';
+      thirdImg.style.display = 'none';
+      fourthImg.style.display = 'none';
+    } else if (index === 3) {
+      firstImg.style.display = 'none';
+      secondImg.style.display = 'none';
+      thirdImg.style.display = 'block';
+      fourthImg.style.display = 'none';
+    } else if (index === 4) {
+      firstImg.style.display = 'none';
+      secondImg.style.display = 'none';
+      thirdImg.style.display = 'none';
+      fourthImg.style.display = 'block';
+    }
+  }
+
   leftButton.addEventListener(`click`, () => {
-    leftButton.style.backgroundColor = `green`;
+    show(-1)
   })
 
   rightButton.addEventListener(`click`, () => {
-    rightButton.style.backgroundColor = `green`;
+    show(1)
   })
 
-  console.log(carousel);
+  // console.log(carousel);
   return carousel
 }
+
+// console.log(carouselParent)
 /* HTML:
   <div class="carousel">
     <div class="left-button"> < </div>

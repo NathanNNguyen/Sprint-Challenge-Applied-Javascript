@@ -22,9 +22,9 @@ const cardsParent = document.querySelector(`.cards-container`);
 axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
   .then(response => {
     const articles = response.data.articles;
-    console.log(articles);
+    // console.log(articles);
     const topics = Object.keys(articles);
-    console.log(topics);
+    // console.log(topics);
 
     topics.forEach(item => {
       articles[item].forEach(article => {
@@ -38,6 +38,7 @@ axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
   })
 
 function newCard(data) {
+  // console.log(data)
   const card = document.createElement(`div`);
   const headline = document.createElement(`div`);
   const author = document.createElement(`div`);
